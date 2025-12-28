@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Nelo - NFC Fintech Wallet",
+  "description": "A high-security mobile-oriented fintech application for offline NFC payments and business card sharing.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

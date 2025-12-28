@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Nelo Wallet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sat: env(safe-area-inset-top);
+            --sar: env(safe-area-inset-right);
+            --sab: env(safe-area-inset-bottom);
+            --sal: env(safe-area-inset-left);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #ffffff;
+            margin: 0;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            height: 100vh;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+        .nfc-pulse {
+            animation: pulse 2.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.08); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-5px); }
+          75% { transform: translateX(5px); }
+        }
+        .animate-shake {
+          animation: shake 0.2s ease-in-out infinite;
+        }
+        /* Full screen immersion */
+        .mobile-shell {
+            max-width: 500px;
+            width: 100%;
+            height: 100vh;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 0 100px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            padding-top: var(--sat);
+            padding-bottom: var(--sab);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(128,128,128,0.2);
+            border-radius: 10px;
+        }
+        
+        * {
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        
+        button:active {
+            transform: scale(0.96);
+        }
+
+        @media (max-width: 430px) {
+            .mobile-shell {
+                max-width: 100%;
+            }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai",
+    "@/": "./"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+</body>
+</html>
